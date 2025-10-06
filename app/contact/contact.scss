@@ -1,0 +1,27 @@
+.watch-page {
+    min-height: 100vh;
+    background: var(--gradient-black-to-dark-grey);
+    padding-top: 2rem;
+}
+
+h1 {
+    color: var(--color-pastel-sky-blue);
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+    font-size: var(--text-4xl);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    font-family: var(--font-bebas-neue);
+}
+
+h2 {
+    color: var(--color-white);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    font-family: var(--font-lato);
+    text-decoration: none;
+}

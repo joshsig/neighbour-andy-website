@@ -1,8 +1,9 @@
+import './contact.scss';
 export default function Contact() {
     return (
-        <div>
+        <div className="contact-page">
             <h1>Contact</h1>
-            <p>Get in touch with Neighbour Andy...</p>
+            <h2><a href="mailto:neighbourandy@gmail.com">neighbourandy@gmail.com</a></h2>
         </div>
     )
 }
