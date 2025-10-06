@@ -1,0 +1,78 @@
+// Font and Color Variables
+:root {
+    --font-alex-brush: 'Alex Brush', cursive;
+    --font-bebas-neue: 'Bebas Neue', sans-serif;
+    --font-lato: 'Lato', sans-serif;
+
+    --color-pastel-orange: #bf1e2d;
+    --color-pastel-sky-blue: #87ceeb;
+    --color-white: #ffffff;
+    --color-dark-grey: #1a1a1a;
+    --color-black: #000000;
+
+    // Perfect Fifth Typography Scale (Desktop)
+    --text-xs: 0.75rem; // 12px
+    --text-sm: 0.875rem; // 14px
+    --text-base: 1rem; // 16px (base)
+    --text-lg: 1.5rem; // 24px (1.5x)
+    --text-xl: 2.25rem; // 36px (1.5x)
+    --text-2xl: 3.375rem; // 54px (1.5x)
+    --text-3xl: 5.063rem; // 81px (1.5x)
+    --text-4xl: 7.594rem; // 121px (1.5x)
+    --text-5xl: 11.391rem; // 182px (1.5x)
+    --text-6xl: 17.087rem; // 273px (1.5x)
+
+
+    // background gradient
+    --gradient-black-to-dark-grey: linear-gradient(60deg, var(--color-black) 0%, var(--color-dark-grey) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(--font-lato);
+    color: var(--color-white);
+    background: linear-gradient(180deg, var(--color-black) 0%, var(--color-dark-grey) 100%);
+}
+
+// Major Third Typography Scale (Mobile)
+@media (max-width: 768px) {
+    :root {
+        --text-xs: 0.75rem; // 12px
+        --text-sm: 0.875rem; // 14px
+        --text-base: 1rem; // 16px (base)
+        --text-lg: 1.25rem; // 20px (1.25x)
+        --text-xl: 1.563rem; // 25px (1.25x)
+        --text-2xl: 1.953rem; // 31px (1.25x)
+        --text-3xl: 2.441rem; // 39px (1.25x)
+        --text-4xl: 3.052rem; // 49px (1.25x)
+        --text-5xl: 3.815rem; // 61px (1.25x)
+        --text-6xl: 4.768rem; // 76px (1.25x)
+        --text-7xl: 5.96rem; // 95px (1.25x)
+    }
+}
+
+// Dynamic body padding based on navigation state
+body {
+    transition: padding-top 0.3s ease;
+}
+
+// When navigation is scrolled, add padding to prevent content overlap
+body.nav-scrolled {
+    padding-top: 70px;
+}
+
+// Lenis smooth scroll setup
+.lenis {
+    height: 100vh;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}

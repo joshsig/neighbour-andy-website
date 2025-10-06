@@ -1,0 +1,85 @@
+.icon-link-list {
+    margin: 2rem 0;
+
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        padding: 0;
+
+        li {
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--color-white);
+                text-decoration: none;
+                transition: all 0.3s ease;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+
+                svg {
+                    width: 32px;
+                    height: 32px;
+                    transition: all 0.3s ease;
+                }
+
+                &:hover {
+                    color: var(--color-pastel-sky-blue);
+                    transform: translateY(-3px) scale(1.1);
+                    filter: drop-shadow(0 4px 8px rgba(135, 206, 235, 0.5));
+
+                    svg {
+                        transform: rotate(5deg);
+                    }
+                }
+
+                &:focus {
+                    outline: 2px solid var(--color-pastel-sky-blue);
+                    outline-offset: 4px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .icon-link-list {
+        width: 100%;
+        padding: 0 1rem;
+
+        ul {
+            gap: 0.5rem;
+            padding: 0;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+
+            // Hide scrollbar but keep functionality
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            li {
+                flex-shrink: 0;
+
+                a {
+                    svg {
+                        width: 28px;
+                        height: 28px;
+                    }
+
+                    &:hover {
+                        transform: translateY(-2px) scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}

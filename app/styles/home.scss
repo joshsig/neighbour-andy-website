@@ -1,0 +1,164 @@
+// Home Page Styles
+
+// Lock scrolling on home page
+.home-page {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+// Landing Section
+.landing-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/nb-park.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+
+    .landing-content {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        margin-top: 20vh;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+
+        .hero-title {
+            display: flex;
+
+            img {
+                height: auto;
+                max-width: 100%;
+                width: clamp(300px, 50vw, 600px);
+                min-width: 700px;
+            }
+        }
+
+        .hero-bottom {
+            width: 100%;
+            max-width: 800px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+
+            .hero-tagline {
+                font-family: var(--font-bebas-neue);
+                font-size: var(--text-lg);
+                font-weight: 200;
+                color: var(--color-white);
+                letter-spacing: 0.05em;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+                margin: 0;
+                padding-bottom: 0.8rem;
+                text-align: center;
+            }
+
+        }
+    }
+
+    .main-page-button {
+        font-family: var(--font-bebas-neue);
+        font-size: var(--text-lg);
+        font-weight: 400;
+        color: var(--color-white);
+        background: rgba(0, 0, 0, 0.5);
+        border: 2px solid var(--color-pastel-sky-blue);
+        padding: 0.75rem 2rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        letter-spacing: 0.05em;
+        width: 100%;
+
+        &:hover {
+            background: transparent;
+            color: var(--color-pastel-sky-blue);
+            transform: translateY(-8px);
+            border: 2px solid var(--color-pastel-sky-blue);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .main-page-button-container {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+        width: 75%;
+
+        >a {
+            flex: 1;
+        }
+    }
+
+    .links-container {
+        margin-top: 2rem;
+    }
+}
+
+// Responsive Design - Typography scales are handled by CSS variables
+// Perfect Fifth (1.5x) for desktop, Major Third (1.25x) for mobile
+@media (max-width: 768px) {
+    .landing-section {
+        .landing-content {
+
+
+            .hero-title {
+                img {
+                    min-width: 300px;
+                    margin-top: 5vh;
+                }
+            }
+
+            .main-page-button-container {
+                flex-direction: column;
+                gap: 1em;
+                align-items: center;
+                justify-content: center;
+                width: 40%;
+
+                >a {
+                    width: 100%;
+                }
+            }
+
+            .links-container {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 480px) {
+    .landing-section {
+        overflow-y: auto;
+
+        .landing-content {
+            .hero-title {
+                img {
+                    min-width: 200px;
+                }
+            }
+
+            .icon-link-list ul {
+                gap: 1.5rem;
+            }
+
+            .main-page-button-container {
+                flex-direction: column;
+                gap: 0.5em;
+                align-items: center;
+                justify-content: center;
+                width: 40%;
+
+                >a {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

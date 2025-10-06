@@ -1,95 +1,89 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import './styles/home.scss';
+import Image from 'next/image';
+import Link from 'next/link';
+import Links from './components/Links';
+import { motion } from 'framer-motion';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const buttons = [
+    { href: '/merch', label: 'Shop' },
+    { href: '/music', label: 'Listen' },
+    { href: '/watch', label: 'Watch' },
+    { href: '/shows', label: 'Gigs' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' },
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  ];
+
+  return (
+    <div className="home-page">
+      {/* Landing Section */}
+      <section id="landing" className="landing-section">
+        <div className="landing-content">
+          <motion.div
+            className="hero-title"
+            initial={{ opacity: 0, scale: 0.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/nb-logo.png"
+              alt="Neighbour Andy"
+              width={600}
+              height={200}
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+          </motion.div>
+
+          <motion.div
+            className="hero-bottom"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeInOut" }}
           >
-            Read our docs
-          </a>
+            <h4 className="hero-tagline">cool stuff, slick stuff, neat stuff</h4>
+          </motion.div>
+
+          <motion.div
+            className="main-page-button-container"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7, ease: "easeInOut" }}
+          >
+            {buttons.map((button, index) => (
+              <Link key={button.href} href={button.href}>
+                <motion.button
+                  className="main-page-button"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.9 + (index * 0.1),
+                    ease: "easeInOut"
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {button.label}
+                </motion.button>
+              </Link>
+            ))}
+          </motion.div>
+
+          <motion.div
+            className="links-container"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
+          >
+            <Links />
+          </motion.div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+
     </div>
   );
 }
