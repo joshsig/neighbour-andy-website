@@ -7,13 +7,13 @@ export const bandMatesData: BandMate[] = [
         role: 'Lead Vocals & Guitar',
         bio: 'Voice of Fergie and Jesus.',
         photo: '/images/wild_one.jpg',
-        alt: 'Andy Johnson - Lead Vocals & Guitar'
+        alt: 'Drake Lesperance - Lead Vocals & Guitar'
     },
     {
         id: '2',
         name: 'Mark Davidson',
         role: 'Lead Guitar',
-        bio: 'Loves a hot dog.',
+        bio: 'shredding.',
         photo: '/images/wild_one.jpg',
         alt: 'Mark Davidson - Lead Guitar & Backing Vocals'
     },

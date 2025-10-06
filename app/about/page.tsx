@@ -44,7 +44,7 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                Discover Andy
+                Discovering Andy
             </motion.h1>
 
             {/* First grid section */}

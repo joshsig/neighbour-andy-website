@@ -13,15 +13,9 @@ export default function BandMateCard({ bandMate, index }: BandMateCardProps) {
     return (
         <motion.div
             className="band-mate-card"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-                duration: 0.3,
-                delay: index * 0.05,
-                ease: "easeOut"
-            }}
             whileHover={{
                 scale: 1.02,
+                y: -5,
                 transition: { duration: 0.2 }
             }}
         >
@@ -37,16 +31,11 @@ export default function BandMateCard({ bandMate, index }: BandMateCardProps) {
                 />
             </motion.div>
 
-            <motion.div
-                className="band-mate-card__content"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2, delay: index * 0.05 + 0.1 }}
-            >
+            <div className="band-mate-card__content">
                 <h3 className="band-mate-card__name">{bandMate.name}</h3>
                 <p className="band-mate-card__role">{bandMate.role}</p>
                 <p className="band-mate-card__bio">{bandMate.bio}</p>
-            </motion.div>
+            </div>
         </motion.div>
     );
 }

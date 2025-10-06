@@ -6,6 +6,7 @@ export default function Footer() {
         <div className="footer">
             <Links />
             <p>© 2025 Neighbour Andy | All rights reserved.</p>
+            <p>Site Design by <a href="https://joshsig.ca">JoshSig</a></p>
         </div>
     )
 }
