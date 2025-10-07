@@ -41,6 +41,8 @@ h2 {
         width: 100%;
     }
 
+    .loading-message,
+    .error-message,
     .no-shows-message {
         text-align: center;
         padding: 4rem 2rem;
@@ -57,6 +59,12 @@ h2 {
                 font-weight: 600;
                 opacity: 1;
             }
+        }
+    }
+
+    .error-message {
+        p {
+            color: #ff6b6b;
         }
     }
 

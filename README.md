@@ -59,20 +59,67 @@ sanity/
 
 Create a `.env.local` file with:
 
-```
+```env
 NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
-NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_DATASET=development  # or production
 ```
+
+## Sanity CMS Setup
+
+This project uses Sanity CMS for managing show/concert data. The current setup is a **testing environment** that will be migrated to the client's production account later.
+
+### 📚 Documentation
+
+- **[Quick Start Guide](./docs/sanity/SANITY_QUICK_START.md)** - Get started in 5 minutes
+- **[Comprehensive Guide](./docs/sanity/SANITY_TESTING_AND_MIGRATION_GUIDE.md)** - Full documentation, testing, and migration
+- **[Sample Data](./docs/sanity/SAMPLE_SHOW_DATA.md)** - Sample shows to populate for testing
+- **[Setup Notes](./docs/sanity/SANITY_SETUP.md)** - Original setup reference
+- **[Documentation Index](./docs/sanity/SANITY_DOCS_INDEX.md)** - Navigate all Sanity docs
+
+### 🚀 Quick Start with Sanity
+
+```bash
+# Start Sanity Studio
+npx sanity dev
+# Opens at http://localhost:3333
+
+# In another terminal, start Next.js
+npm run dev
+# Opens at http://localhost:3000
+
+# Test connection
+node test-sanity.js
+```
+
+Visit `http://localhost:3333` to add shows, then view them at `http://localhost:3000/shows`.
+
+### Current Test Setup
+
+- **Project ID**: `z72jw93i`
+- **Dataset**: `development`
+- **Status**: Testing environment (will migrate to client account)
+
+See [SANITY_QUICK_START.md](./docs/sanity/SANITY_QUICK_START.md) for step-by-step instructions.
 
 ## Deployment
 
 The project is configured for deployment on Vercel. Simply connect your GitHub repository to Vercel and deploy.
 
-## Next Steps
+### Environment Variables for Production
 
-1. Set up your Sanity project and update environment variables
-2. Create Sanity schemas for your content
-3. Implement Framer Motion animations
-4. Add Lenis smooth scrolling
-5. Style with SASS/SCSS
-6. Add your content and images
+Make sure to set these in Vercel:
+- `NEXT_PUBLIC_SANITY_PROJECT_ID`
+- `NEXT_PUBLIC_SANITY_DATASET`
+
+## Scripts
+
+```bash
+npm run dev          # Start Next.js development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+
+npx sanity dev       # Start Sanity Studio
+npx sanity deploy    # Deploy Sanity Studio
+node test-sanity.js  # Test Sanity connection
+```

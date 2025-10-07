@@ -22,6 +22,7 @@ export default function ShowItem({ show }: { show: Show }) {
         >
             <div className="show-item__left">
                 <div className="show-item__date">{formatDate(show.date)}</div>
+                <div className="show-item__title">{show.title}</div>
                 <div className="show-item__venue">{show.venue}</div>
                 {show.supportingActs && show.supportingActs.length > 0 && (
                     <div className="show-item__supporting">

@@ -15,6 +15,13 @@ export default function Watch() {
             >
                 Watch
             </motion.h1>
+            <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                Niagra Street
+            </motion.h2>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -43,7 +50,7 @@ export default function Watch() {
                 >
                     Live at No Fun Club
                 </motion.h2>
-                <div className="watch-iframe__mini-container-inner">
+                <div className="watch-iframe__mini-container__inner">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -53,7 +60,7 @@ export default function Watch() {
                         <iframe
                             width="500"
                             height="300"
-                            src="https://www.youtube.com/watch?v=O-x1-3iZsrQ"
+                            src="https://www.youtube.com/embed/O-x1-3iZsrQ"
                             title="Neighbour Andy - Wild One (Live at No Fun Club)"
                             frameBorder="0"
                             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -71,7 +78,7 @@ export default function Watch() {
                         <iframe
                             width="500"
                             height="300"
-                            src="https://www.youtube.com/watch?v=M8KhhdVMgwA"
+                            src="https://www.youtube.com/embed/M8KhhdVMgwA"
                             title="Neighbour Andy - Pacifica (Live at No Fun Club)"
                             frameBorder="0"
                             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -89,7 +96,7 @@ export default function Watch() {
                         <iframe
                             width="500"
                             height="300"
-                            src="https://www.youtube.com/watch?v=l-MJhrf3Ffc"
+                            src="https://www.youtube.com/embed/l-MJhrf3Ffc"
                             title="Neighbour Andy - What Once Was (Her’s Cover) (Live at No Fun Club)"
                             frameBorder="0"
                             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
