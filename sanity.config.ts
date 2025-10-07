@@ -1,6 +1,8 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import show from './sanity/schemas/show'
+import video from './sanity/schemas/video'
+import release from './sanity/schemas/release'
 
 export default defineConfig({
     name: 'neighbour-andy',
@@ -11,6 +13,6 @@ export default defineConfig({
     dataset: 'development',
     plugins: [structureTool()],
     schema: {
-        types: [show],
+        types: [show, video, release],
     },
 })

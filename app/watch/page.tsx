@@ -2,12 +2,38 @@
 
 import './watch.scss';
 import Footer from '../components/Footer';
+import VideoPlayer from '../components/VideoPlayer';
 import { motion } from 'framer-motion';
+import { client } from '../lib/sanity';
+import { useState, useEffect } from 'react';
+import type { Video } from '../types/video';
 
+const VIDEOS_QUERY = `*[_type == "video"] | order(order asc) {
+    _id,
+    _type,
+    title,
+    videoUrl,
+    videoType,
+    order
+}`;
 export default function Watch() {
+    const [videos, setVideos] = useState<Video[]>([]);
+
+    useEffect(() => {
+        async function fetchVideos() {
+            const data = await client.fetch<Video[]>(VIDEOS_QUERY);
+            setVideos(data);
+        }
+
+        fetchVideos();
+    }, []);
+
+    // Separate primary and secondary videos
+    const primaryVideo = videos.find(video => video.videoType === 'primary');
+    const secondaryVideos = videos.filter(video => video.videoType === 'secondary');
+
     return (
         <div className="watch-page">
-
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -15,98 +41,39 @@ export default function Watch() {
             >
                 Watch
             </motion.h1>
-            <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                Niagra Street
-            </motion.h2>
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="watch-iframe"
-            >
-                <iframe
-                    width="990"
-                    height="560"
-                    src="https://www.youtube.com/embed/UQbBM2wRDUQ?autoplay=1&mute=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&controls=1"
-                    title="Niagra Street"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                    loading="lazy"
-                ></iframe>
-            </motion.div>
 
+            {/* Primary Video */}
+            {primaryVideo && (
+                <>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        {primaryVideo.title}
+                    </motion.h2>
+                    <VideoPlayer video={primaryVideo} isPrimary={true} />
+                </>
+            )}
 
-            <div className="watch-iframe__mini-container">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    Live at No Fun Club
-                </motion.h2>
-                <div className="watch-iframe__mini-container__inner">
-                    <motion.div
+            {/* Secondary Videos Grid */}
+            {secondaryVideos.length > 0 && (
+                <div className="watch-iframe__mini-container">
+                    <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="watch-iframe__mini"
                     >
-                        <iframe
-                            width="500"
-                            height="300"
-                            src="https://www.youtube.com/embed/O-x1-3iZsrQ"
-                            title="Neighbour Andy - Wild One (Live at No Fun Club)"
-                            frameBorder="0"
-                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                            loading="lazy"
-                        ></iframe>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="watch-iframe__mini"
-                    >
-                        <iframe
-                            width="500"
-                            height="300"
-                            src="https://www.youtube.com/embed/M8KhhdVMgwA"
-                            title="Neighbour Andy - Pacifica (Live at No Fun Club)"
-                            frameBorder="0"
-                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                            loading="lazy"
-                        ></iframe>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="watch-iframe__mini"
-                    >
-                        <iframe
-                            width="500"
-                            height="300"
-                            src="https://www.youtube.com/embed/l-MJhrf3Ffc"
-                            title="Neighbour Andy - What Once Was (Her’s Cover) (Live at No Fun Club)"
-                            frameBorder="0"
-                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                            loading="lazy"
-                        ></iframe>
-                    </motion.div>
+                        More Videos
+                    </motion.h2>
+                    <div className="watch-iframe__mini-container__inner">
+                        {secondaryVideos.map((video) => (
+                            <VideoPlayer key={video._id} video={video} isPrimary={false} />
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
+
             <Footer />
         </div>
     )

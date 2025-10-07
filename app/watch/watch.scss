@@ -45,16 +45,50 @@ h2 {
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
-            max-width: 1600px;
+            max-width: min(1600px, 100vw);
+            box-sizing: border-box;
         }
     }
 
-    &__mini {
-        width: clamp(280px, 30vw, 480px);
-        height: clamp(168px, 18vw, 288px);
-        flex-shrink: 0;
+    .video-row {
+        display: flex;
+        gap: 2rem;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
         margin-bottom: 2rem;
     }
+
+    &__mini {
+        width: 480px;
+        height: 270px;
+        flex-shrink: 0;
+        margin-bottom: 2rem;
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+.watch-iframe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    iframe {
+        width: 960px;
+        height: 540px;
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+// Ensure all video iframes stay within viewport bounds
+.watch-iframe iframe,
+.watch-iframe__mini iframe {
+    max-width: min(100%, 100vw);
+    box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -63,19 +97,38 @@ h2 {
     }
 
     .watch-iframe {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        iframe {
+            width: 100%;
+            height: 56.25vw;
+            max-width: 640px;
+            max-height: 360px;
+            aspect-ratio: 16 / 9;
+        }
+
         &__mini-container {
             padding: 0 1rem;
+            margin: 2rem auto;
 
             &__inner {
                 gap: 1.5rem;
                 flex-direction: column;
                 align-items: center;
+                max-width: min(100vw, 400px);
+                width: 100%;
+                box-sizing: border-box;
             }
         }
 
         &__mini {
-            width: clamp(280px, 80vw, 400px);
-            height: clamp(168px, 45vw, 240px);
+            width: 400px;
+            height: 225px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            max-width: 100%;
+            aspect-ratio: 16 / 9;
         }
     }
 }
@@ -83,20 +136,42 @@ h2 {
 @media (max-width: 480px) {
     h1 {
         font-size: var(--text-2xl);
+        padding: 0 1rem;
     }
 
     .watch-iframe {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        iframe {
+            width: 100%;
+            height: 56.25vw;
+            max-width: 480px;
+            max-height: 270px;
+            aspect-ratio: 16 / 9;
+        }
+
         &__mini-container {
             padding: 0 0.5rem;
+            margin: 2rem auto;
 
             &__inner {
                 gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+                max-width: min(100vw, 350px);
+                width: 100%;
+                box-sizing: border-box;
             }
         }
 
         &__mini {
-            width: clamp(280px, 90vw, 350px);
-            height: clamp(168px, 50vw, 210px);
+            width: 350px;
+            height: 197px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            max-width: 100%;
+            aspect-ratio: 16 / 9;
         }
     }
 }

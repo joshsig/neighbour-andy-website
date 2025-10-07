@@ -142,7 +142,7 @@ export default function ContactCard({ serviceId, templateId, publicKey }: Contac
                         onChange={handleInputChange}
                         required
                         rows={5}
-                        placeholder="Talk to your neighbour..."
+                        placeholder="Ask your neighbour about stuff..."
                     />
                 </motion.div>
 
