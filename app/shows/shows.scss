@@ -41,6 +41,8 @@ h2 {
         width: 100%;
     }
 
+    .loading-message,
+    .error-message,
     .no-shows-message {
         text-align: center;
         padding: 4rem 2rem;
@@ -57,6 +59,12 @@ h2 {
                 font-weight: 600;
                 opacity: 1;
             }
+        }
+    }
+
+    .error-message {
+        p {
+            color: #ff6b6b;
         }
     }
 
@@ -84,10 +92,18 @@ h2 {
             letter-spacing: 0.05em;
         }
 
+        &__title {
+            color: var(--color-white);
+            font-family: var(--font-bebas-neue);
+            font-size: var(--text-med);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
         &__venue {
             font-family: var(--font-bebas-neue);
             font-size: var(--text-lg);
-            font-weight: 700;
+            font-weight: 500;
             color: var(--color-white);
             letter-spacing: 0.05em;
         }
@@ -102,7 +118,7 @@ h2 {
 
         &__location {
             font-family: var(--font-lato);
-            font-size: var(--text-base);
+            font-size: var(--text-med);
             font-weight: 400;
             color: var(--color-white);
             flex: 1;
@@ -119,23 +135,14 @@ h2 {
         }
 
         &__button {
-            font-family: var(--font-bebas-neue);
-            font-size: var(--text-base);
-            font-weight: 400;
-            color: var(--color-black);
-            background: var(--color-white);
-            padding: 0.5rem 2rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            border: 2px solid var(--color-white);
 
             &:hover {
-                background: var(--color-pastel-sky-blue);
-                transform: translateY(-2px);
+                border: 2px solid var(--color-pastel-sky-blue);
             }
         }
+
+        // Show item buttons use global .btn-primary styling from globals.scss
     }
 
     @media (max-width: 768px) {

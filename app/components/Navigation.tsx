@@ -14,11 +14,12 @@ export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navItems = [
-        { href: '/about', label: 'About' },
+
         { href: '/music', label: 'Listen' },
         { href: '/watch', label: 'Watch' },
         { href: '/shows', label: 'Shows' },
         { href: '/merch', label: 'Merch' },
+        { href: '/about', label: 'About' },
         { href: '/contact', label: 'Contact' },
 
     ];

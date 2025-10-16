@@ -34,6 +34,7 @@
 
     // background gradient - dark mode
     --gradient-black-to-dark-grey: linear-gradient(60deg, var(--color-black) 0%, var(--color-dark-grey) 100%);
+    background-color: black;
 }
 
 * {
@@ -47,7 +48,7 @@ html,
 body {
     height: 100%;
     font-family: var(--font-lato);
-    color: var(--color-white);
+    color: black;
     background: linear-gradient(180deg, var(--color-black) 0%, var(--color-dark-grey) 100%);
 }
 
@@ -65,6 +66,8 @@ body {
         --text-5xl: 3.815rem; // 61px (1.25x)
         --text-6xl: 4.768rem; // 76px (1.25x)
         --text-7xl: 5.96rem; // 95px (1.25x)
+
+        background-color: black;
     }
 }
 
@@ -85,4 +88,27 @@ body.nav-scrolled {
 
 .lenis.lenis-smooth {
     scroll-behavior: auto !important;
+}
+
+// Global Button Styling
+.btn-primary {
+    font-family: var(--font-bebas-neue);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-white);
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--color-pastel-sky-blue);
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.03s ease;
+    letter-spacing: 0.05em;
+    width: 100%;
+
+    &:hover {
+        background: transparent;
+        color: var(--color-pastel-sky-blue);
+        border: 2px solid var(--color-pastel-sky-blue);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
 }

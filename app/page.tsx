@@ -55,16 +55,15 @@ export default function Home() {
             {buttons.map((button, index) => (
               <Link key={button.href} href={button.href}>
                 <motion.button
-                  className="main-page-button"
+                  className="main-page-button btn-primary"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.4,
-                    delay: 0.9 + (index * 0.1),
-                    ease: "easeInOut"
+                    duration: 0.2,
+                    ease: "easeOut"
                   }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   {button.label}
                 </motion.button>
