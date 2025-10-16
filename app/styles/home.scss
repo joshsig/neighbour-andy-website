@@ -60,28 +60,7 @@
         }
     }
 
-    .main-page-button {
-        font-family: var(--font-bebas-neue);
-        font-size: var(--text-lg);
-        font-weight: 400;
-        color: var(--color-white);
-        background: rgba(0, 0, 0, 0.5);
-        border: 2px solid var(--color-pastel-sky-blue);
-        padding: 0.75rem 2rem;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.5s ease;
-        letter-spacing: 0.05em;
-        width: 100%;
-
-        &:hover {
-            background: transparent;
-            color: var(--color-pastel-sky-blue);
-            transform: translateY(-8px);
-            border: 2px solid var(--color-pastel-sky-blue);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-    }
+    // Main page buttons use global .btn-primary styling from globals.scss
 
     .main-page-button-container {
         margin-top: 2rem;
@@ -134,7 +113,13 @@
 }
 
 @media (max-width: 480px) {
+
+    .home-page {
+        overflow-y: visible;
+    }
+
     .landing-section {
+        height: 100vh;
 
         .landing-content {
             .hero-title {
@@ -159,5 +144,12 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 390px) {
+    .landing-section {
+
+        height: 150vh;
     }
 }

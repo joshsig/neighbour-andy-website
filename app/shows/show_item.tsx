@@ -39,7 +39,7 @@ export default function ShowItem({ show }: { show: Show }) {
                 {show.ticketLink && (
                     <a href={show.ticketLink} target="_blank" rel="noopener noreferrer">
                         <motion.button
-                            className="show-item__button"
+                            className="show-item__button btn-primary"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >

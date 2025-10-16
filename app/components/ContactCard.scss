@@ -65,23 +65,16 @@
 }
 
 .submit-button {
-    width: 100%;
-    padding: 1rem 2rem;
-    background: var(--color-pastel-sky-blue);
-    color: var(--color-dark-grey);
-    border: none;
-    border-radius: 8px;
-    font-size: var(--text-base);
-    font-weight: 600;
-    font-family: var(--font-lato);
-    cursor: pointer;
-    transition: all 0.3s ease;
+    // Submit button uses global .btn-primary styling from globals.scss
     margin-top: 1rem;
+    background: transparent;
+
 
     &:hover:not(:disabled) {
-        background: rgba(135, 206, 235, 0.8);
+        background: var(--color-pastel-sky-blue);
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);
+        color: var(--color-black);
     }
 
     &:active {

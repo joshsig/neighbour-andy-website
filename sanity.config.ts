@@ -15,4 +15,14 @@ export default defineConfig({
     schema: {
         types: [show, video, release],
     },
+    cors: {
+        // Allow requests from your local development server and Sanity Studio
+        origins: [
+            'http://localhost:3000',
+            'http://localhost:3333',
+            'http://127.0.0.1:3000',
+            'http://127.0.0.1:3333',
+        ],
+        credentials: true,
+    },
 })
